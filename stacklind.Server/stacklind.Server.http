@@ -1,0 +1,6 @@
+@stacklind.Server_HostAddress = http://localhost:5118
+
+GET {{stacklind.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
