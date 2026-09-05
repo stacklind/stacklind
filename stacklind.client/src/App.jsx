@@ -1,26 +1,27 @@
-import { useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom'
+import Home from './Home.jsx'
+import ProjectsPage from './ProjectsPage.jsx'
 
 function App() {
-    const [projects, setProjects] = useState([]);
+  return (
+    <div>
+      <header>
+        <h1>Stacklind</h1>
+        <nav>
+          <Link to="/">Home</Link>
+          {' | '}
+          <Link to="/projects">My Projects</Link>
+        </nav>
+      </header>
 
-    useEffect(() => {
-        fetch('/api/Projects')
-            .then(response => response.text())
-            .then(data => setProjects(JSON.parse(data)));
-    }, []);
-
-    return (
-        <div>
-            <h1>My Projects</h1>
-
-            {projects.map(project => (
-                <div key={project.id}>
-                    <h2>{project.name}</h2>
-                    <p>{project.description}</p>
-                </div>
-            ))}
-        </div>
-    );
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
+      </main>
+    </div>
+  )
 }
 
-export default App;
+export default App
