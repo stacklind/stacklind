@@ -5,12 +5,14 @@ import ProjectsPage from './ProjectsPage.jsx'
 function App() {
   return (
     <div>
-      <header>
-        <h1>Stacklind</h1>
-        <nav>
-          <Link to="/">Home</Link>
-          {' | '}
-          <Link to="/projects">My Projects</Link>
+      <header className="site-header">
+        <div className="brand">
+          <h1>Stacklind</h1>
+        </div>
+
+        <nav className="site-nav" aria-label="Main navigation">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/projects" className="nav-link">Projects</Link>
         </nav>
       </header>
 

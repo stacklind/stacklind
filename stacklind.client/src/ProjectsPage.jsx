@@ -26,12 +26,14 @@ function ProjectsPage() {
 
   return (
     <section>
-      <h1>My Projects</h1>
+      <h1 className="page-title">Projects</h1>
 
       {projects.length === 0 ? (
         <p>No projects found.</p>
       ) : (
-        projects.map(project => <Project key={project.id} project={project} />)
+        <div className="projects-list">
+          {projects.map(project => <Project key={project.id} project={project} />)}
+        </div>
       )}
     </section>
   )

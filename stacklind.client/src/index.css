@@ -8,13 +8,10 @@
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
-
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
@@ -41,8 +38,7 @@
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 
   #social .button-icon {
@@ -76,21 +72,23 @@ h2 {
 h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
-  margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
-    margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -108,4 +106,104 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* Header / nav layout and styling */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  position: relative;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: -1px;
+  color: var(--text-h);
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .brand h1 {
+    font-size: 28px;
+  }
+
+  .site-header {
+    padding: 16px 12px;
+  }
+}
+
+.site-nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+  .site-nav .nav-link {
+    text-decoration: none;
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: background 160ms ease, transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  }
+
+    .site-nav .nav-link:hover,
+    .site-nav .nav-link:focus {
+      color: var(--text-h);
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .site-nav .nav-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+/* On narrow screens, fall back to stacked / centered layout */
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+  }
+
+  .site-nav {
+    position: static;
+    transform: none;
+    margin-top: 8px;
+    justify-content: center;
+  }
+}
+
+/* Give main some breathing room from the header */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Projects list layout: allow variable-width cards and wrapping */
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
 }

@@ -1,8 +1,8 @@
 function Home() {
   return (
     <section>
-      <h2>Welcome</h2>
-      <p>This is the landing page. Use the menu to view projects.</p>
+      <h1 className="page-title">Welcome</h1>
+      <p>Welcome to my personal website!</p>
     </section>
   )
 }

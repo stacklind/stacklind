@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Project.module.css';
 
 function Project({ project }) {
     if (!project) return null;
@@ -6,9 +7,9 @@ function Project({ project }) {
     const { id, name, description } = project;
 
     return (
-        <article className="project-card" aria-labelledby={`project-${id}`}>
-            <h2 id={`project-${id}`}>{name}</h2>
-            <p>{description}</p>    
+        <article className={styles.project} aria-labelledby={`project-${id}`}>
+            <h3 id={`project-${id}`} className={styles.title}>{name}</h3>
+            {description && <p className={styles.description}>{description}</p>}
         </article>
     );
 }
